@@ -2,9 +2,8 @@ import {
   addDays,
   endOfDay,
   startOfDay,
-  startOfMonth,
-  endOfMonth,
-  addMonths,
+  startOfTomorrow,
+  endOfTomorrow,
   startOfWeek,
   endOfWeek,
   isSameDay,
@@ -12,18 +11,13 @@ import {
 } from 'date-fns';
 
 const defineds = {
-  startOfWeek: startOfWeek(new Date()),
-  endOfWeek: endOfWeek(new Date()),
-  startOfLastWeek: startOfWeek(addDays(new Date(), -7)),
-  endOfLastWeek: endOfWeek(addDays(new Date(), -7)),
   startOfToday: startOfDay(new Date()),
   endOfToday: endOfDay(new Date()),
-  startOfYesterday: startOfDay(addDays(new Date(), -1)),
-  endOfYesterday: endOfDay(addDays(new Date(), -1)),
-  startOfMonth: startOfMonth(new Date()),
-  endOfMonth: endOfMonth(new Date()),
-  startOfLastMonth: startOfMonth(addMonths(new Date(), -1)),
-  endOfLastMonth: endOfMonth(addMonths(new Date(), -1)),
+  startOfTomorrow: startOfTomorrow(),
+  endOfTomorrow: endOfTomorrow(),
+  startOfWeek: startOfWeek(new Date()),
+  endOfWeek: endOfWeek(new Date()),
+  endOfNextWeek: endOfWeek(addDays(new Date(), 7)),
 };
 
 const staticRangeHandler = {
@@ -40,7 +34,7 @@ const staticRangeHandler = {
 export function createStaticRanges(ranges) {
   return ranges.map(range => ({ ...staticRangeHandler, ...range }));
 }
-
+// today, tomorrow, this week, next 2 weeks
 export const defaultStaticRanges = createStaticRanges([
   {
     label: 'Today',
@@ -50,10 +44,10 @@ export const defaultStaticRanges = createStaticRanges([
     }),
   },
   {
-    label: 'Yesterday',
+    label: 'Tommorow',
     range: () => ({
-      startDate: defineds.startOfYesterday,
-      endDate: defineds.endOfYesterday,
+      startDate: defineds.startOfTomorrow,
+      endDate: defineds.endOfTomorrow,
     }),
   },
 
@@ -65,24 +59,10 @@ export const defaultStaticRanges = createStaticRanges([
     }),
   },
   {
-    label: 'Last Week',
+    label: 'Next Two Week',
     range: () => ({
-      startDate: defineds.startOfLastWeek,
-      endDate: defineds.endOfLastWeek,
-    }),
-  },
-  {
-    label: 'This Month',
-    range: () => ({
-      startDate: defineds.startOfMonth,
-      endDate: defineds.endOfMonth,
-    }),
-  },
-  {
-    label: 'Last Month',
-    range: () => ({
-      startDate: defineds.startOfLastMonth,
-      endDate: defineds.endOfLastMonth,
+      startDate: defineds.startOfWeek,
+      endDate: defineds.endOfNextWeek,
     }),
   },
 ]);

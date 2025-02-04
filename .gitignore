@@ -3,7 +3,5 @@ node_modules/
 *.log
 .idea
 *.orig
-lib/
 NOTES.txt
-dist/
-styleguide/
+

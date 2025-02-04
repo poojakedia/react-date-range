@@ -150,7 +150,7 @@ DateRange.defaultProps = {
   ranges: [],
   moveRangeOnFirstSelection: false,
   retainEndDateOnFirstSelection: false,
-  rangeColors: ['#3d91ff', '#3ecf8e', '#fed14c'],
+  rangeColors: ['#cc0033', '#d64267', '#cc5f7a'],
   disabledDates: [],
 };
 
