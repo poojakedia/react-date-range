@@ -1,7 +1,7 @@
 /* eslint-disable no-fallthrough */
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import classnames from 'classnames';
+import classnames from '../../../dependency-rewrites/classnames';
 import { startOfDay, format, isSameDay, isAfter, isBefore, endOfDay } from 'date-fns';
 
 class DayCell extends Component {

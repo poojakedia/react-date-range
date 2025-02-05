@@ -1,4 +1,4 @@
-import classnames from 'classnames';
+import classnames from '../dependency-rewrites/classnames';
 import {
   startOfMonth,
   endOfMonth,

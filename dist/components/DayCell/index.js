@@ -6,7 +6,7 @@ Object.defineProperty(exports, "__esModule", {
 exports.rangeShape = exports.default = void 0;
 var _react = _interopRequireWildcard(require("react"));
 var _propTypes = _interopRequireDefault(require("prop-types"));
-var _classnames = _interopRequireDefault(require("classnames"));
+var _classnames = _interopRequireDefault(require("../../../dependency-rewrites/classnames"));
 var _dateFns = require("date-fns");
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 function _getRequireWildcardCache(e) { if ("function" != typeof WeakMap) return null; var r = new WeakMap(), t = new WeakMap(); return (_getRequireWildcardCache = function (e) { return e ? t : r; })(e); }

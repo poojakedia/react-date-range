@@ -10,7 +10,7 @@ var _DayCell = require("../DayCell");
 var _Month = _interopRequireDefault(require("../Month"));
 var _DateInput = _interopRequireDefault(require("../DateInput"));
 var _utils = require("../../utils");
-var _classnames = _interopRequireDefault(require("classnames"));
+var _classnames = _interopRequireDefault(require("../../../dependency-rewrites/classnames"));
 var _reactList = _interopRequireDefault(require("react-list"));
 var _shallowEqual = require("shallow-equal");
 var _dateFns = require("date-fns");
@@ -143,7 +143,7 @@ class Calendar extends _react.PureComponent {
         className: styles.monthAndYearWrapper
       }, showMonthArrow ? /*#__PURE__*/_react.default.createElement("button", {
         type: "button",
-        className: (0, _classnames.default)(styles.nextPrevButton, styles.prevButton),
+        className: styles.nextPrevButton + ' ' + styles.prevButton,
         onClick: () => changeShownDate(-1, 'monthOffset'),
         "aria-label": ariaLabels.prevButton
       }, /*#__PURE__*/_react.default.createElement("i", null)) : null, showMonthAndYearPickers ? /*#__PURE__*/_react.default.createElement("span", {
@@ -175,7 +175,7 @@ class Calendar extends _react.PureComponent {
         className: styles.monthAndYearPickers
       }, this.state.monthNames[focusedDate.getMonth()], " ", focusedDate.getFullYear()), showMonthArrow ? /*#__PURE__*/_react.default.createElement("button", {
         type: "button",
-        className: (0, _classnames.default)(styles.nextPrevButton, styles.nextButton),
+        className: styles.nextPrevButton + ' ' + styles.nextButton,
         onClick: () => changeShownDate(+1, 'monthOffset'),
         "aria-label": ariaLabels.nextButton
       }, /*#__PURE__*/_react.default.createElement("i", null)) : null);
@@ -205,9 +205,9 @@ class Calendar extends _react.PureComponent {
             color: range.color || defaultColor
           }
         }, /*#__PURE__*/_react.default.createElement(_DateInput.default, {
-          className: (0, _classnames.default)(styles.dateDisplayItem, {
+          className: styles.dateDisplayItem + ' ' + {
             [styles.dateDisplayItemActive]: focusedRange[0] === i && focusedRange[1] === 0
-          }),
+          }.toString(),
           readOnly: !editableDateInputs,
           disabled: range.disabled,
           value: range.startDate,
@@ -218,9 +218,9 @@ class Calendar extends _react.PureComponent {
           onChange: this.onDragSelectionEnd,
           onFocus: () => this.handleRangeFocusChange(i, 0)
         }), /*#__PURE__*/_react.default.createElement(_DateInput.default, {
-          className: (0, _classnames.default)(styles.dateDisplayItem, {
+          className: styles.dateDisplayItem + " " + {
             [styles.dateDisplayItemActive]: focusedRange[0] === i && focusedRange[1] === 1
-          }),
+          }.toString(),
           readOnly: !editableDateInputs,
           disabled: range.disabled,
           value: range.endDate,
@@ -444,7 +444,7 @@ class Calendar extends _react.PureComponent {
       color: range.color || rangeColors[i] || color
     }));
     return /*#__PURE__*/_react.default.createElement("div", {
-      className: (0, _classnames.default)(this.styles.calendarWrapper, className),
+      className: this.styles.calendarWrapper + ' ' + className,
       onMouseUp: () => this.setState({
         drag: {
           status: false,

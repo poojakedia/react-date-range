@@ -6,7 +6,6 @@ Object.defineProperty(exports, "__esModule", {
 exports.default = void 0;
 var _react = _interopRequireWildcard(require("react"));
 var _propTypes = _interopRequireDefault(require("prop-types"));
-var _classnames = _interopRequireDefault(require("classnames"));
 var _dateFns = require("date-fns");
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 function _getRequireWildcardCache(e) { if ("function" != typeof WeakMap) return null; var r = new WeakMap(), t = new WeakMap(); return (_getRequireWildcardCache = function (e) { return e ? t : r; })(e); }
@@ -103,7 +102,7 @@ class DateInput extends _react.PureComponent {
       invalid
     } = this.state;
     return /*#__PURE__*/_react.default.createElement("span", {
-      className: (0, _classnames.default)('rdrDateInput', className)
+      className: 'rdrDateInput' + ' ' + className
     }, /*#__PURE__*/_react.default.createElement("input", {
       readOnly: readOnly,
       disabled: disabled,

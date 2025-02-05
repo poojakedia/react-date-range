@@ -4,7 +4,7 @@ import { rangeShape } from '../DayCell';
 import Month from '../Month';
 import DateInput from '../DateInput';
 import { calcFocusDate, generateStyles, getMonthDisplayRange } from '../../utils';
-import classnames from 'classnames';
+import classnames from '../../../dependency-rewrites/classnames';
 import ReactList from 'react-list';
 import { shallowEqualObjects } from 'shallow-equal';
 import {
@@ -195,7 +195,7 @@ class Calendar extends PureComponent {
         {showMonthArrow ? (
           <button
             type="button"
-            className={classnames(styles.nextPrevButton, styles.prevButton)}
+            className={styles.nextPrevButton + ' ' + styles.prevButton}
             onClick={() => changeShownDate(-1, 'monthOffset')}
             aria-label={ariaLabels.prevButton}>
             <i />
@@ -242,7 +242,7 @@ class Calendar extends PureComponent {
         {showMonthArrow ? (
           <button
             type="button"
-            className={classnames(styles.nextPrevButton, styles.nextButton)}
+            className={styles.nextPrevButton + ' ' + styles.nextButton}
             onClick={() => changeShownDate(+1, 'monthOffset')}
             aria-label={ariaLabels.nextButton}>
             <i />
@@ -293,9 +293,13 @@ class Calendar extends PureComponent {
               key={i}
               style={{ color: range.color || defaultColor }}>
               <DateInput
-                className={classnames(styles.dateDisplayItem, {
-                  [styles.dateDisplayItemActive]: focusedRange[0] === i && focusedRange[1] === 0,
-                })}
+                className={
+                  styles.dateDisplayItem +
+                  ' ' +
+                  {
+                    [styles.dateDisplayItemActive]: focusedRange[0] === i && focusedRange[1] === 0,
+                  }.toString()
+                }
                 readOnly={!editableDateInputs}
                 disabled={range.disabled}
                 value={range.startDate}
@@ -311,9 +315,13 @@ class Calendar extends PureComponent {
                 onFocus={() => this.handleRangeFocusChange(i, 0)}
               />
               <DateInput
-                className={classnames(styles.dateDisplayItem, {
-                  [styles.dateDisplayItemActive]: focusedRange[0] === i && focusedRange[1] === 1,
-                })}
+                className={
+                  styles.dateDisplayItem +
+                  ' ' +
+                  {
+                    [styles.dateDisplayItemActive]: focusedRange[0] === i && focusedRange[1] === 1,
+                  }.toString()
+                }
                 readOnly={!editableDateInputs}
                 disabled={range.disabled}
                 value={range.endDate}
@@ -422,7 +430,7 @@ class Calendar extends PureComponent {
     }));
     return (
       <div
-        className={classnames(this.styles.calendarWrapper, className)}
+        className={this.styles.calendarWrapper + ' ' + className}
         onMouseUp={() => this.setState({ drag: { status: false, range: {} } })}
         onMouseLeave={() => {
           this.setState({ drag: { status: false, range: {} } });

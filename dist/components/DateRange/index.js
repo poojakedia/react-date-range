@@ -10,7 +10,6 @@ var _Calendar = _interopRequireDefault(require("../Calendar"));
 var _DayCell = require("../DayCell");
 var _utils = require("../../utils");
 var _dateFns = require("date-fns");
-var _classnames = _interopRequireDefault(require("classnames"));
 var _styles = _interopRequireDefault(require("../../styles"));
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 function _getRequireWildcardCache(e) { if ("function" != typeof WeakMap) return null; var r = new WeakMap(), t = new WeakMap(); return (_getRequireWildcardCache = function (e) { return e ? t : r; })(e); }
@@ -165,7 +164,7 @@ class DateRange extends _react.Component {
       }
     }, this.props, {
       displayMode: "dateRange",
-      className: (0, _classnames.default)(this.styles.dateRangeWrapper, this.props.className),
+      className: this.styles.dateRangeWrapper + ' ' + this.props.className,
       onChange: this.setSelection,
       updateRange: val => this.setSelection(val, false),
       ref: target => {

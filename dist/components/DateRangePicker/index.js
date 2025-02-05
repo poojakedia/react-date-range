@@ -9,7 +9,6 @@ var _propTypes = _interopRequireDefault(require("prop-types"));
 var _DateRange = _interopRequireDefault(require("../DateRange"));
 var _DefinedRange = _interopRequireDefault(require("../DefinedRange"));
 var _utils = require("../../utils");
-var _classnames = _interopRequireDefault(require("classnames"));
 var _styles = _interopRequireDefault(require("../../styles"));
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 function _getRequireWildcardCache(e) { if ("function" != typeof WeakMap) return null; var r = new WeakMap(), t = new WeakMap(); return (_getRequireWildcardCache = function (e) { return e ? t : r; })(e); }
@@ -28,7 +27,7 @@ class DateRangePicker extends _react.Component {
       focusedRange
     } = this.state;
     return /*#__PURE__*/_react.default.createElement("div", {
-      className: (0, _classnames.default)(this.styles.dateRangePickerWrapper, this.props.className)
+      className: this.styles.dateRangePickerWrapper + ' ' + this.props.className
     }, /*#__PURE__*/_react.default.createElement(_DefinedRange.default, _extends({
       focusedRange: focusedRange,
       onPreviewChange: value => this.dateRange.updatePreview(value ? this.dateRange.calcNewSelection(value, typeof value === 'string') : null)

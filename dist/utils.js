@@ -7,7 +7,7 @@ exports.calcFocusDate = calcFocusDate;
 exports.findNextRangeIndex = findNextRangeIndex;
 exports.generateStyles = generateStyles;
 exports.getMonthDisplayRange = getMonthDisplayRange;
-var _classnames = _interopRequireDefault(require("classnames"));
+var _classnames = _interopRequireDefault(require("../dependency-rewrites/classnames"));
 var _dateFns = require("date-fns");
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 function calcFocusDate(currentFocusedDate, props) {
